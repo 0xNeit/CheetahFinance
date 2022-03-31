@@ -1,0 +1,93 @@
+/* dapp */
+
+.main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+.angelWrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 0px 20px;
+  border: 2px solid;
+  background-color: var(--bg-color2);
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.angelAbout > button {
+  align-self: center;
+  justify-self: center;
+}
+
+.angelAbout {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+.angelAbout > h2 {
+  text-align: center;
+}
+.angelAbout > p {
+  font-size: 20px;
+}
+
+.dappWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dappWrapper > button {
+  margin-bottom: 20px;
+}
+
+.stats {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+}
+
+.status {
+  font-size: 20px;
+}
+
+.status > span {
+  color: #fff;
+}
+
+.inputAmount {
+  font-size: 20px;
+  text-align: center;
+  margin: 0px 30px 30px 30px;
+  border-radius: 5px;
+  outline: 2px solid #fff;
+}
+
+.label {
+  font-size: 20px;
+  text-align: center;
+}
+
+.inputAmount:focus {
+  outline: 2px solid var(--action-color);
+}
+
+@media screen and (max-width: 786px) {
+  .angelWrapper {
+    flex-direction: column;
+    margin-top: 100px;
+  }
+}

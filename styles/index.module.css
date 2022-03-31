@@ -1,0 +1,390 @@
+.main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.mainContent {
+  min-height: 100vh;
+  position: relative;
+}
+
+.mainContentWrapper {
+  margin-top: 100px;
+  min-height: 100vh;
+  display: grid;
+  grid-auto-rows: auto;
+  justify-items: center;
+  align-items: center;
+}
+
+.socialsBar {
+  position: relative;
+  padding-left: 5px;
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  top: -10px;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.socialsBarWrapper {
+  position: relative;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 150px;
+  transition-duration: 0.2s;
+  pointer-events: auto;
+}
+
+.socialsBarWrapper:hover {
+  background: var(--action-color);
+}
+
+.socialsBarWrapper > svg {
+  fill: var(--bg-color2);
+  height: 30px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.socialsBarWrapper > svg:hover {
+  fill: #fff;
+}
+
+.tokenInfo {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageBoxMain {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-width: 300px;
+}
+
+.featuresVideo {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.featuresVideo > video {
+  border-radius: 15px;
+  border: 2.5px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  width: 100%;
+  max-width: 800px;
+}
+
+.infoWrapper > p {
+  font-size: 20px;
+}
+
+.buttonWrapperMain {
+  display: flex;
+  gap: 5px;
+}
+
+.tokenInfo > h1 {
+  align-self: flex-start;
+  justify-self: flex-start;
+  font-size: 45px;
+}
+
+.infoWrapper {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+}
+
+.chart {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Roadmap */
+
+.roadmap {
+  padding: 100px 0;
+}
+
+.roadmapWrapper {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmapWrapper > h2 {
+  font-size: 45px;
+  align-self: center;
+}
+
+.roadmapInfoWrapper {
+  padding: 10px 0 20px 0;
+}
+
+.roadmapInfo {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 0 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadmapInfo > h3 {
+  margin: 0;
+  font-size: 28px;
+}
+.roadmapInfo > ul {
+  margin: 0;
+  font-size: 20px;
+}
+
+.phaseOne {
+  display: flex;
+}
+
+.phaseOne > div:nth-of-type(1) {
+  flex: 1;
+}
+.phaseOne > div:nth-of-type(2) {
+  flex: 2;
+}
+
+.phaseTwo {
+  display: flex;
+}
+
+.phaseTwo > div:nth-of-type(1) {
+  flex: 2;
+}
+.phaseTwo > div:nth-of-type(2) {
+  flex: 1;
+}
+
+.phaseThree {
+  display: flex;
+}
+
+.phaseThree > div:nth-of-type(1) {
+  flex: 1;
+}
+.phaseThree > div:nth-of-type(2) {
+  flex: 2;
+}
+
+/* info */
+.features {
+  padding: 100px 0;
+  width: 100vw;
+  background: var(--bg-color2);
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.featuresWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.featuresInfoWrapper {
+  flex: 1;
+}
+
+.featuresInfo {
+  font-size: 20px;
+}
+.featuresInfo > h2 {
+  font-size: 40px;
+  text-decoration: underline;
+}
+
+.featuresImage {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+.featuresImage:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.featuresImage > img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 35px;
+}
+.featuresImage > video {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 35px;
+}
+.buttonWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+/* tokenomics */
+.tokenomics {
+  width: 100vw;
+  padding: 60px 0 100px 0;
+}
+
+.taxWrapper {
+  padding-top: 50px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.taxItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.taxItems > h3 {
+  margin: 0;
+  font-size: 30px;
+}
+.taxItems > p {
+  margin: 0;
+  font-size: 22px;
+}
+
+.tokenomicsWrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tokenomicsWrapper > h2 {
+  font-size: 40px;
+  text-decoration: underline;
+}
+
+.tokenomicsInfo {
+  font-size: 22px;
+  text-align: center;
+}
+
+/* Slider */
+
+.imageBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  flex: 1;
+}
+
+.imageBox > div {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 35px;
+}
+.video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 35px;
+}
+
+@media screen and (max-width: 845px) {
+  .buttonWrapperMain {
+    justify-content: center;
+    align-items: center;
+  }
+  .imageBox {
+    justify-content: center;
+    align-items: center;
+  }
+  .imageBoxMain {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .roadmapInfo {
+    margin: 0;
+  }
+
+  .mainContentWrapper {
+    flex-direction: column-reverse;
+  }
+
+  .tokenInfo {
+    justify-content: flex-start;
+  }
+
+  .angelInvestors {
+    flex-direction: column;
+  }
+  .autoStaking {
+    flex-direction: column-reverse;
+  }
+  .nfts {
+    flex-direction: column;
+  }
+  .taxWrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featuresInfo > h2 {
+    text-align: center;
+  }
+
+  .phaseOne {
+    flex-direction: column;
+  }
+  .phaseTwo {
+    flex-direction: column-reverse;
+  }
+  .phaseThree {
+    flex-direction: column;
+  }
+}

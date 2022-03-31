@@ -1,0 +1,112 @@
+.main {
+  padding: 200px 25px;
+  margin: 0 auto;
+  max-width: 1200px;
+  z-index: 1;
+  --action-color: rgb(211, 160, 3);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  height: 100%;
+  width: 100%;
+  padding: 0 25px;
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+}
+
+.containerFixed {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  height: 100%;
+  width: 100%;
+  padding: 0 25px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.aboutContentFixed {
+  padding-left: 100px;
+  margin: 20px 0;
+  flex: 3;
+}
+
+.tableOfContentsFixed {
+  flex: 1;
+  left: 20px;
+  z-index: 10;
+}
+
+.tableOfContentsTitle {
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.tableOfContents {
+  flex: 1;
+}
+
+.tableOfContents > ul {
+  margin-top: -15px;
+  margin-left: -20px;
+  list-style: none;
+}
+
+.tableOfContents > ul > li::before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  height: 10px;
+  width: 10px;
+  border-bottom: 1.5px solid white;
+  border-left: 1.5px solid white;
+}
+
+.aboutContent {
+  padding-left: 50px;
+  margin: 20px 0;
+  flex: 3;
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom-left-radius: 25px;
+}
+
+.aboutContent > h2 {
+  font-size: 32px;
+}
+
+.aboutContent > h3 {
+  padding-left: 20px;
+  font-size: 22px;
+}
+
+.aboutContent > p {
+  padding-left: 40px;
+}
+
+.title {
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 845px) {
+  .containerFixed{
+    display: none;
+  }
+  .tableOfContents {
+  display: none;
+}
+.aboutContent{
+  padding: 0 0 0 20px;
+}
+}

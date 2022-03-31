@@ -1,0 +1,54 @@
+html,
+body {
+  --main-color: rgb(0, 0, 0);
+  --bg-color: rgb(25, 26, 36);
+  --bg-color2: rgb(37, 38, 53);
+  --action-color: rgb(211, 160, 3);
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  width: 15px;
+  background-color: var(--bg-color2);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--action-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  color: rgb(255, 255, 255);
+  border: 2px solid var(--action-color);
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+button:hover {
+  border: 2px solid var(--action-color);
+  background-color: var(--action-color);
+  transform: scale(1.05);
+}
+
+.container{
+  display: block;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
