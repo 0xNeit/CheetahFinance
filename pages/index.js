@@ -105,7 +105,10 @@ const Home = () => {
                     }
                   </p>
                   <div className={styles.buttonWrapperMain}>
-                    <button onClick={addTokenFunction}>Import Cheetah</button>
+                    <Link href="/docs/whitepaper.pdf">
+                      <button>Whitepaper</button>
+                    </Link>
+                    {/* <button onClick={addTokenFunction}>Import Cheetah</button> */}
                     <button
                       onClick={() => {
                         {
