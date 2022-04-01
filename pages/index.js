@@ -101,7 +101,7 @@ const Home = () => {
                 <div className={styles.infoWrapper}>
                   <p>
                     {
-                      "Prepare yourselves for the new generation of BSC. 300 BNB pre-sale, but no tokens allocated? That means no private sale dumpers at launch! Staking, but with 1,000,000% APY? x1,000,000 your investment in one year!?."
+                      "Prepare yourselves for the new generation of BSC. 300 BNB pre-sale, but no tokens allocated? That means no private sale dumpers at launch! Staking, but with 1,000,000,000% APY? x1,000,000,000 your investment in one year!?."
                     }
                   </p>
                   <div className={styles.buttonWrapperMain}>
