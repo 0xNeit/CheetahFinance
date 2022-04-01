@@ -121,7 +121,7 @@
   width: 100%;
   z-index: 100;
   transition: 1s;
-  box-shadow: 0 0 13px 3px var(--action-color);
+  box-shadow: 0 0 15px 1px var(--action-color);
 }
 
 @media screen and (max-width: 786px) {
