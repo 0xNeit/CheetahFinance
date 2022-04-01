@@ -1,7 +1,7 @@
 import { rpcURL, blockExplorerUrls } from "../pages/_app";
 
 
-const tokenAddress = "0xba2ae424d960c26247dd6c32edc70b295c744c43";
+const tokenAddress = "";
 const tokenSymbol = "Cheetah";
 const tokenDecimals = 18;
 const tokenImage = "https://i.imgur.com/nKDl2LY.png";

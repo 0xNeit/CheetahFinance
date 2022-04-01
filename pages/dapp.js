@@ -27,6 +27,10 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
   }, [vmContract]);
 
   useEffect(() => {
+    const progress = amountCollected / 3;
+
+    document.getElementById("loader").style.width = `${progress}%`;
+
     if (importAccount != null) {
       setAccount(importAccount);
       setVmContract(vm);
@@ -53,9 +57,7 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
           alert.show("Your atempted deposit exceeds total hardcap!");
         }
       } else {
-        alert.show(
-          "The mininum deposit is 1 BNB and the maximum is 300 BNB"
-        );
+        alert.show("The mininum deposit is 1 BNB and the maximum is 300 BNB");
       }
     } else {
       alert.show("Please connect your wallet to the site!");
@@ -130,12 +132,18 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
                 <button>Read More</button>
               </Link>
             </div>
+
             <div className={styles.dappWrapper}>
-              <div className={styles.stats}>
-                <p>Your Deposits:</p> <p>{amountSent} BNB</p>
+              <div className={styles.statsBarTop}>
+                <div className={styles.progressBarOuter}>
+                  <span id="loader" className={styles.progressBarInner}></span>
+                </div>
+              </div>
+              <div className={styles.statsBar}>
+                <p>Total Contributed: {amountCollected}/300 BNB</p>
               </div>
               <div className={styles.stats}>
-                <p>Total Deposited:</p> <p>{amountCollected} / 300 BNB</p>
+                <p>Your Deposits:</p> <p>{amountSent} BNB</p>
               </div>
               <div className={styles.stats}>
                 <p>Est. Daily Volume On Launch:</p> <p>1.1M USD</p>
