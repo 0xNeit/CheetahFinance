@@ -145,9 +145,7 @@ const Home = () => {
                     investors. Without a presale, there will be no tokens
                     allocated before launch and resulting in more tokens
                     available in supply to achieve a high APY. The benefit of no
-                    private/presale token allocations means no launch dumps and
-                    the angels holding the floor now this is where we introduce
-                    the concept of Angels Investors.
+                    private/presale token allocations means no token dumps at launch. 
                   </p>
                   <div className={styles.buttonWrapper}>
                     <Link href="/info" passHref>

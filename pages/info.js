@@ -135,8 +135,8 @@ const Info = () => {
               Fund. You can see a fully detailed list of your own live metrics
               on the website dashboard or on the pre-sale page. Angel Investors
               Funds will be distributed on a daily basis. Our average 24H volume
-              from previous projects is 800K USD, and with just 3.1M total
-              volume, you will already break even, regardless of what you
+              from previous projects on launch is 800K USD, and with just 3.1M
+              total volume, you will already break even, regardless of what you
               invest. Which from just launch day us already 1/3 achieved. When
               we reach 25M total volume, your investment will be multiplied by
               8. That means if you invested 10 BNB, you will already have 80
@@ -144,7 +144,7 @@ const Info = () => {
               funds, you will also be invited to an exclusive Angel Investors
               Group, where we leak early news and give access to future deals,
               projects and more. We also won’t have any pre-allocated tokens,
-              thanks to this unique pre-sale, so our chart will hahe the
+              thanks to this unique pre-sale, so our chart will have the
               potential to be way healthier than projects with regular
               pre-sales.
             </p>
@@ -152,9 +152,8 @@ const Info = () => {
             <p>
               Angel investors will be early on investors and instead of them
               receiving tokens they receive a % of the tokenomics. The benefit
-              of no private/presale token allocations means no launch dumps and
-              the angels holding the floor now this is where we introduce the
-              concept of Angels Investors.
+              of no private/presale token allocations means no token dumps at
+              launch.
             </p>
             <h3 id="angelInvestors2">{"How does it work?"}</h3>
             <p>
