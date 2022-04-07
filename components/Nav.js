@@ -94,7 +94,7 @@ const Nav = ({ handlerConnectWallet }) => {
             </Link>
           </li>
           <li>
-            <Link href="/" passHref>
+            <Link href="/team" passHref>
               Team
             </Link>
           </li>
@@ -128,7 +128,7 @@ const Nav = ({ handlerConnectWallet }) => {
               </Link>
             </li>
             <li>
-              <Link href="/" passHref>
+              <Link href="/team" passHref>
                 Team
               </Link>
             </li>

@@ -1,0 +1,138 @@
+.main {
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  z-index: 10;
+}
+
+.cardRow {
+  margin: 25px 0 25px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 25px;
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider > span {
+  border-radius: 100px;
+  width: 100%;
+  height: 3px;
+  background-color: var(--action-color);
+}
+
+.divider > h3 {
+  font-weight: 500;
+  font-size: 22px;
+  white-space: nowrap;
+  margin: 0 20px;
+}
+
+.cardWrapper {
+  position: relative;
+  height: 400px;
+  width: 300px;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 400px;
+  width: 300px;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transition: 0.5s;
+}
+.card:hover .cardFront {
+  transform: rotateX(-180deg);
+}
+.card:hover .cardBack {
+  transform: rotateX(0deg);
+}
+
+.cardFront {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  background-position: 50% 50%;
+  background-size: cover;
+  position: absolute;
+  background-color: #000000;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  transition: 0.5s;
+  border-radius: 10px;
+  border: 3px solid var(--bg-color2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.selfmade {
+  background-image: url("../public/images/selfmade.jpg");
+}
+.guru {
+  background-image: url("../public/images/guru.jpg");
+}
+
+.wario {
+  background-image: url("../public/images/wario.jpg");
+}
+.roclips {
+  background-image: url("../public/images/roclips.jpg");
+}
+
+.jesse {
+  background-image: url("../public/images/jesse.jpg");
+}
+.rowvisuals {
+  background-image: url("../public/images/row.jpg");
+}
+
+.teamIntro {
+  background-color: var(--bg-color2);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  width: 100%;
+  text-align: center;
+}
+
+.cardFront h2 {
+  font-weight: 500;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.cardBack {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: var(--bg-color2);
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+  transition: 0.5s;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px solid var(--action-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.cardBack ul {
+  text-align: left;
+  margin: 0;
+  padding: 10px 25px;
+}
