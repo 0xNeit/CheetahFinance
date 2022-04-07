@@ -80,7 +80,7 @@ const Team = () => {
               <div className={`${styles.cardFront} ${styles.wario}`}>
                 <div className={styles.teamIntro}>
                   <h2>Wario</h2>
-                  <h2>CSocial Media Manager & Mod</h2>
+                  <h2>Social Media Manager & Mod</h2>
                 </div>
               </div>
               <div className={styles.cardBack}>
