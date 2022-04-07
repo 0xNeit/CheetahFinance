@@ -119,7 +119,7 @@ const Team = () => {
                     as our Community Lead.
                   </li>
                   <li>
-                    He's been on Discord ever since he was young, having made
+                    He’s been on Discord ever since he was young, having made
                     multiple servers for large companies!
                   </li>
                 </ul>
