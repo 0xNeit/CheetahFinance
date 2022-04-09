@@ -39,7 +39,7 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
 
   const handleDepositBNB = async () => {
     if (account !== null) {
-      if (depositAmount >= .1 && depositAmount <= 300) {
+      if (depositAmount >= 1 && depositAmount <= 300) {
         if (depositAmount + amountCollected <= 300)
           try {
             console.log(depositAmount * 1 + amountCollected);
@@ -57,7 +57,7 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
           alert.show("Your atempted deposit exceeds total hardcap!");
         }
       } else {
-        alert.show("The mininum deposit is .1 BNB and the maximum is 300 BNB");
+        alert.show("The mininum deposit is 1 BNB and the maximum is 300 BNB");
       }
     } else {
       alert.show("Please connect your wallet to the site!");
@@ -160,7 +160,7 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
                 <p>{percentTransactions} %</p>
               </div>
               <div>
-                <p className={styles.label}>.1 BNB Min - 300BNB Max:</p>
+                <p className={styles.label}>1 BNB Min - 300BNB Max:</p>
                 <input
                   id="inputAmount"
                   className={styles.inputAmount}
