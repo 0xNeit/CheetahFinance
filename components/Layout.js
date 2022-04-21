@@ -1,5 +1,5 @@
 import Nav from "../components/Nav";
-import SidebarNav from "../components/SidebarNav"
+import SidebarNav from "../components/SidebarNav";
 import { useState, useEffect } from "react";
 import styles from "../styles/layout.module.css";
 import pawStyles from "../styles/pawprints.module.css";
@@ -13,12 +13,10 @@ function getWindowDimensions() {
 }
 
 const Layout = ({ children, setShowWallet, account, disconnectWallet }) => {
-
-  const [windowDimensions, setWindowDimensions] = useState(
-    getWindowDimensions().width
-  );
+  const [windowDimensions, setWindowDimensions] = useState(null);
 
   useEffect(() => {
+    setWindowDimensions(getWindowDimensions().width);
     function handleResize() {
       setWindowDimensions(getWindowDimensions().width);
     }
