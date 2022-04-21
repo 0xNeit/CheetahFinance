@@ -31,7 +31,7 @@ const animationDropdown = {
   },
 };
 
-const SidebarNav = ({ setShowWallet, account, disconnectWallet }) => {
+const SidebarNav = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen1, setIsDropdownOpen1] = useState(false);
   const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
@@ -39,26 +39,26 @@ const SidebarNav = ({ setShowWallet, account, disconnectWallet }) => {
   const [button, setButton] = useState("Connect");
 
   useEffect(() => {
-    if (!account) {
+    if (!props.account) {
       setButton("Connect");
       document.getElementById("walletButton").style.border =
         "2px solid var(--action-color)";
       document
         .getElementById("walletButton")
-        .removeEventListener("click", disconnectWallet);
+        .removeEventListener("click", props.disconnectWallet);
       document
         .getElementById("walletButton")
-        .addEventListener("click", setShowWallet);
+        .addEventListener("click", props.setShowWallet);
     } else {
       setButton("Disconnect");
       document
         .getElementById("walletButton")
-        .removeEventListener("click", setShowWallet);
+        .removeEventListener("click", props.setShowWallet);
       document
         .getElementById("walletButton")
-        .addEventListener("click", disconnectWallet);
+        .addEventListener("click", props.disconnectWallet);
     }
-  }, [account]);
+  }, [props.account]);
 
   return (
     <div>
