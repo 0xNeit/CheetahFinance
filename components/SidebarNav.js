@@ -5,10 +5,25 @@ import { useEffect, useState } from "react";
 import styles from "../styles/sidebarNav.module.css";
 import CheetahLogo from "../public/images/cheetah-logo.png";
 
+// const animationMenu = {
+//   open: { opacity: 1, y: 0 },
+//   closed: { opacity: 0, y: "-100%" },
+//   transition: { type: "inertia", velocity: 50 },
+// };
 const animationMenu = {
-  open: { opacity: 1, y: 0 },
-  closed: { opacity: 0, y: "-100%" },
-  transition: { type: "inertia", velocity: 50 },
+  hidden: {
+    opacity: 0,
+    y: "-100%",
+  },
+  visible: {
+    opacity: 1,
+    y: "0",
+    height: "auto",
+  },
+  exit: {
+    opacity: 0,
+    y: "-100%",
+  },
 };
 
 const animationDropdown = {
@@ -90,110 +105,125 @@ const SidebarNav = ({ setShowWallet, account, disconnectWallet }) => {
           </div>
         </div>
       </div>
-      <motion.div
-        variants={animationMenu}
-        animate={isOpen ? "open" : "closed"}
-        transition="transition"
-        className={styles.sidebarWrapper}
-      >
-        <div className={styles.navListWrapper}>
-          <div className={styles.navItemWrapper}>
-            <NavItem
-              name="Home"
-              arrow={true}
-              dropdown={true}
-              function={() => setIsDropdownOpen1(!isDropdownOpen1)}
-            >
-              <AnimatePresence exitBeforeEnter>
-                {isDropdownOpen1 && (
-                  <motion.div
-                    variants={animationDropdown}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <Dropdown>
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Home"
-                        link="/"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Angel Investors"
-                        link="/#AngleInvestors"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Roadmap"
-                        link="/#roadmap"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Auto Staking"
-                        link="/#AutoStaking"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Tokenomics"
-                        link="/#tokenomics"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="NFT's"
-                        link="/#NFT"
-                      />
-                    </Dropdown>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </NavItem>
-          </div>
-          <div className={styles.navItemWrapper}>
-            <NavItem
-              name="Docs"
-              arrow={true}
-              dropdown={true}
-              function={() => setIsDropdownOpen2(!isDropdownOpen2)}
-            >
-              <AnimatePresence exitBeforeEnter>
-                {isDropdownOpen2 && (
-                  <motion.div
-                    variants={animationDropdown}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <Dropdown>
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Whitepaper"
-                        link="/docs/whitepaper.pdf"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="Audit"
-                        link="#"
-                      />
-                      <DropdownItem
-                        function={() => setIsOpen(false)}
-                        name="KYC"
-                        link="#"
-                      />
-                    </Dropdown>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </NavItem>
-          </div>
-          <div className={styles.navItemWrapper}>
-            <NavItem name="Info" link="/info" dropdown={false} arrow={false} />
-          </div>
-          <div className={styles.navItemWrapper}>
-            <NavItem name="Team" link="/team" dropdown={false} arrow={false} />
-          </div>
-        </div>
-      </motion.div>
+      <AnimatePresence exitBeforeEnter>
+        {isOpen && (
+          <motion.div
+            variants={animationMenu}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className={styles.sidebarWrapper}
+          >
+            <div className={styles.navListWrapper}>
+              <div className={styles.navItemWrapper}>
+                <NavItem
+                  name="Home"
+                  arrow={true}
+                  dropdown={true}
+                  function={() => setIsDropdownOpen1(!isDropdownOpen1)}
+                >
+                  <AnimatePresence exitBeforeEnter>
+                    {isDropdownOpen1 && (
+                      <motion.div
+                        variants={animationDropdown}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                      >
+                        <Dropdown>
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Home"
+                            link="/"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Angel Investors"
+                            link="/#AngleInvestors"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Roadmap"
+                            link="/#roadmap"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Auto Staking"
+                            link="/#AutoStaking"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Tokenomics"
+                            link="/#tokenomics"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="NFT's"
+                            link="/#NFT"
+                          />
+                        </Dropdown>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavItem>
+              </div>
+              <div className={styles.navItemWrapper}>
+                <NavItem
+                  name="Docs"
+                  arrow={true}
+                  dropdown={true}
+                  function={() => setIsDropdownOpen2(!isDropdownOpen2)}
+                >
+                  <AnimatePresence exitBeforeEnter>
+                    {isDropdownOpen2 && (
+                      <motion.div
+                        variants={animationDropdown}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                      >
+                        <Dropdown>
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Whitepaper"
+                            link="/docs/whitepaper.pdf"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="Audit"
+                            link="#"
+                          />
+                          <DropdownItem
+                            function={() => setIsOpen(false)}
+                            name="KYC"
+                            link="#"
+                          />
+                        </Dropdown>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </NavItem>
+              </div>
+              <div className={styles.navItemWrapper}>
+                <NavItem
+                  name="Info"
+                  link="/info"
+                  dropdown={false}
+                  arrow={false}
+                />
+              </div>
+              <div className={styles.navItemWrapper}>
+                <NavItem
+                  name="Team"
+                  link="/team"
+                  dropdown={false}
+                  arrow={false}
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

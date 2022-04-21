@@ -21,7 +21,7 @@ const Home = () => {
   }
   function copyContract() {
     /* Copy the text inside the text field */
-    navigator.clipboard.writeText("");
+    navigator.clipboard.writeText("0x706f7eec76187fb3817bb4156b6321d3820939a1");
   }
 
   const interactivity = {
@@ -64,7 +64,7 @@ const Home = () => {
               >
                 <iframe
                   className={styles.floozFrame}
-                  src="https://www.flooz.trade/embedded//?backgroundColor=transparent&chainId=56"
+                  src="https://www.flooz.trade/embedded/0x706f7eec76187fb3817bb4156b6321d3820939a1/?backgroundColor=transparent&chainId=56"
                   title="Flooz Trade"
                   allow="clipboard-read; clipboard-write; web-share; accelerometer *; autoplay *; camera *; gyroscope *; payment *"
                 >
