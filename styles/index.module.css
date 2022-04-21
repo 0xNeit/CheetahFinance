@@ -356,6 +356,15 @@
   border-radius: 35px;
 }
 
+/* flooz */
+.floozFrame{
+  border-style: none;
+  height: 600px;
+  width: 470px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+
 @media screen and (max-width: 845px) {
   .imageBox {
     justify-content: center;

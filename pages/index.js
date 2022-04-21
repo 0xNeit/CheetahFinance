@@ -120,8 +120,7 @@ const Home = () => {
                 className={styles.modalItem}
               >
                 <iframe
-                  width="400"
-                  height="610"
+                  className={styles.floozFrame}
                   src="https://www.flooz.trade/embedded/0xEA620a491111bF54db6B702ee9F6Df6fE539967d/?backgroundColor=transparent&chainId=56"
                   title="Flooz Trade"
                   allow="clipboard-read; clipboard-write; web-share; accelerometer *; autoplay *; camera *; gyroscope *; payment *"
