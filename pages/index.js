@@ -36,7 +36,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    var countDownDate = new Date("April 21, 2022 20:09:00");
+    var countDownDate = new Date("April 21, 2022 20:20:00");
 
     const x = setInterval(function () {
       // Get today's date and time
