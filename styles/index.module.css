@@ -1,3 +1,16 @@
+.alertModal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.redText{
+  color: red;
+  text-shadow: 0 0 20px red;
+}
+
 .main {
   position: relative;
   display: flex;
@@ -99,7 +112,14 @@
 
 .buttonWrapperMain {
   display: flex;
-  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+.buttonWrapperMain h3{
+  font-weight: 500;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
 .tokenInfo > h1 {
@@ -257,6 +277,7 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
 /* tokenomics */
 .tokenomics {
   width: 100vw;
@@ -336,10 +357,6 @@
 }
 
 @media screen and (max-width: 845px) {
-  .buttonWrapperMain {
-    justify-content: center;
-    align-items: center;
-  }
   .imageBox {
     justify-content: center;
     align-items: center;

@@ -1,7 +1,8 @@
 import styles from "../styles/index.module.css";
 import Link from "next/link";
 import Head from "next/head";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
 import rocket from "../public/images/rocket.json";
 import genius from "../public/images/genius.json";
@@ -10,6 +11,7 @@ import angel from "../public/images/angel.json";
 import wallet from "../public/images/wallet.json";
 import lock from "../public/images/lock.json";
 import total from "../public/images/total.json";
+import Modal from "../components/Modal";
 import { addTokenFunction } from "../components/web3/wallets/metamaskfunctions/metamask";
 
 const Home = () => {
@@ -33,6 +35,53 @@ const Home = () => {
     ],
   };
 
+  useEffect(() => {
+    var countDownDate = new Date("April 21, 2022 20:00:00");
+
+    const x = setInterval(function () {
+      // Get today's date and time
+      var now = new Date();
+      var nowUTC = new Date(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCDate(),
+        now.getUTCHours(),
+        now.getUTCMinutes(),
+        now.getUTCSeconds()
+      );
+      // Find the distance between now and the count down date
+      var distance = countDownDate - nowUTC;
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      // Display the result in the element with id="demo"
+      document.getElementById("timer").innerHTML =
+        "Launch Timer:" +
+        " " +
+        days +
+        "d " +
+        hours +
+        "h " +
+        minutes +
+        "m " +
+        seconds +
+        "s ";
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML =
+          "Launch Timer: Buying is enabled!!!"
+      }
+    }, 1000);
+  }, []);
+
+  const [showBuy, setShowBuy] = useState(false);
+  const [showAlert, setShowAlert] = useState(true);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -49,6 +98,46 @@ const Home = () => {
         />
         <link rel="icon" href="/images/cheetah-logo.ico" />
       </Head>
+      <AnimatePresence exitBeforeEnter>
+        {showAlert && (
+          <Modal setShowModal={setShowAlert} showModal={showAlert}>
+            <div className={styles.alertModal}>
+              <h1>
+                {" "}
+                <span className={styles.redText}>!WARNING!</span> DO NOT BUY
+                BEFORE THE TIMER HITS ZERO{" "}
+                <span className={styles.redText}>!WARNING!</span>
+              </h1>
+              <h2 id="timer"></h2>
+            </div>
+          </Modal>
+        )}
+        {showBuy && (
+          <Modal setShowModal={setShowBuy} showModal={showBuy}>
+            <div className={styles.buyModal}>
+              <div
+                onClick={() => setShowBuy(false)}
+                className={styles.modalItem}
+              >
+                <iframe
+                  width="400"
+                  height="610"
+                  src="https://www.flooz.trade/embedded/0xEA620a491111bF54db6B702ee9F6Df6fE539967d/?backgroundColor=transparent&chainId=56"
+                  title="Flooz Trade"
+                  frameborder="0"
+                  allow="clipboard-read; clipboard-write; web-share; accelerometer *; autoplay *; camera *; gyroscope *; payment *"
+                >
+                  {" "}
+                </iframe>
+              </div>
+              <div
+                onClick={() => setShowBuy(false)}
+                className={styles.modalItem}
+              ></div>
+            </div>
+          </Modal>
+        )}
+      </AnimatePresence>
       <main className={styles.main}>
         <div className={styles.socialsBar}>
           <div className={styles.socialsBarWrapper}>
@@ -102,8 +191,9 @@ const Home = () => {
                     }
                   </p>
                   <div className={styles.buttonWrapperMain}>
-                    {<button onClick={addTokenFunction}>Import Cheetah</button>}
-                    <button
+                    <button onClick={() => setShowBuy(true)}>Buy</button>
+                    <h3 onClick={addTokenFunction}>Import Cheetah</h3>
+                    <h3
                       onClick={() => {
                         {
                           copyContract();
@@ -114,10 +204,7 @@ const Home = () => {
                       }}
                     >
                       Contract
-                    </button>
-                    <Link href="https://pancakeswap.finance/swap?outputCurrency=0xea620a491111bf54db6b702ee9f6df6fe539967d">
-                      <button>Buy</button>
-                    </Link>
+                    </h3>
                   </div>
                 </div>
               </div>

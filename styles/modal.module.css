@@ -1,0 +1,23 @@
+.main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(79, 79, 79, 0.5);
+    z-index: 1000;
+}
+
+.modalWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: .5rem .5rem 2.5rem #000;
+}
