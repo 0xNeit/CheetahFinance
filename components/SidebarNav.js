@@ -31,7 +31,7 @@ const animationDropdown = {
   },
 };
 
-const SidebarNav = ({setShowWallet, account, disconnectWallet}) => {
+const SidebarNav = ({ setShowWallet, account, disconnectWallet }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen1, setIsDropdownOpen1] = useState(false);
   const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
@@ -63,7 +63,14 @@ const SidebarNav = ({setShowWallet, account, disconnectWallet}) => {
   return (
     <div>
       <div className={styles.header}>
-        <div className={styles.menuWrapper} onClick={() => setIsOpen(!isOpen)}>
+        <div
+          className={styles.menuWrapper}
+          onClick={() => {
+            setIsOpen(!isOpen);
+            setIsDropdownOpen1(false);
+            setIsDropdownOpen2(false);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
