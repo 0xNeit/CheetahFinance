@@ -1,158 +1,153 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/nav.module.css";
-import { CgMenuRound } from "react-icons/cg";
+import Image from "next/image";
+import { tokenPrice } from "../components/web3/tokenprice";
+import CheetahLogo from "../public/images/cheetah-logo.png";
 
-const Nav = ({ handlerConnectWallet }) => {
-  const [open, setOpen] = useState(true);
-
-
-  useEffect(() => {
-    if (window.location.pathname !== "/dapp") {
-      document.getElementById("connectButton").style.display = "none";
-      document.getElementById("dappButton").style.display = "flex";
-      document.getElementById("connectButtonMobile").style.display = "none";
-      document.getElementById("dappButtonMobile").style.display = "flex";
-    } else {
-      document.getElementById("dappButton").style.display = "none";
-      document.getElementById("connectButton").style.display = "flex";
-      document.getElementById("dappButtonMobile").style.display = "none";
-      document.getElementById("connectButtonMobile").style.display = "flex";
-    }
-  });
+const Nav = ({ setShowWallet, account, disconnectWallet }) => {
+  const [button, setButton] = useState("Connect Wallet");
+  const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    document.getElementById("connectButton").addEventListener("click", (e) => {
-      handlerConnectWallet().then((label) => {
-        document.getElementById("connectButton").innerText = label.label;
-      });
-    });
-    document
-      .getElementById("connectButtonMobile")
-      .addEventListener("click", (e) => {
-        handlerConnectWallet().then((label) => {
-          document.getElementById("connectButtonMobile").innerText =
-            label.label;
-        });
-      });
+    const getPrice = async () => {
+      let p = await tokenPrice();
+      setPrice(p.priceInUSD.toFixed(5));
+    };
+    getPrice();
+    const t = setInterval(getPrice, 10000);
+
+    return () => clearInterval(t); // clear
   }, []);
 
   useEffect(() => {
-    if (open === true) {
-      document.getElementById("menu").style.display = "none";
+    if (!account) {
+      setButton("Connect Wallet");
+      document.getElementById("walletButton").style.border =
+        "2px solid var(--action-color)";
+      document
+        .getElementById("walletButton")
+        .removeEventListener("click", disconnectWallet);
+      document
+        .getElementById("walletButton")
+        .addEventListener("click", setShowWallet);
     } else {
-      document.getElementById("menu").style.display = "flex";
+      setButton("Disconnect");
+      document
+        .getElementById("walletButton")
+        .removeEventListener("click", setShowWallet);
+      document
+        .getElementById("walletButton")
+        .addEventListener("click", disconnectWallet);
     }
-  }, [open]);
+  }, [account]);
 
   return (
-    <div>
-      <div className={styles.mobileMenu}>
-        <CgMenuRound
-          onClick={() => setOpen(!open)}
-          className={styles.hamburger}
-          size="70px"
-          color="#fff"
-        ></CgMenuRound>
-        <Link href="/dapp" passHref>
-          <button id="dappButtonMobile" className={styles.headerButton}>
-            PreSale
-          </button>
-        </Link>
-        <Link href="/dapp" passHref>
-          <button
-            id="connectButtonMobile"
-            onClick={handlerConnectWallet}
-            className={styles.headerButton}
-          >
-            Connect
-          </button>
-        </Link>
-        <ul
-          id="menu"
-          className={styles.mobileList}
-          onClick={() => setOpen(!open)}
-        >
-          <li>
-            <Link href="/" passHref>
-              Home
+    <main className={styles.header}>
+      <nav className={styles.navWrapper}>
+        <div className={styles.navRight}>
+          <div className={styles.logo}>
+            <Link href="/">
+              <Image src={CheetahLogo} height={50} width={50} />
             </Link>
-          </li>
-          <li>
-            <Link href="/info" passHref>
-              Info
-            </Link>
-          </li>
-          <li>
-            <Link href="/#tokenomics" passHref>
-              Tokenomics
-            </Link>
-          </li>
-          <li>
-            <Link href="/#roadmap" passHref>
-              Roadmap
-            </Link>
-          </li>
-          <li>
-            <Link href="/team" passHref>
-              Team
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <header className={styles.mainHeader}>
-        <nav className={styles.mainNav}>
-          <div className={styles.branding}>
-            <img src="/images/cheetah-logo.png" className={styles.headerLogo} />
-            <h2>Cheetah</h2>
           </div>
-          <ul>
-            <li>
-              <Link href="/" passHref>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/#roadmap" passHref>
-                Roadmap
-              </Link>
-            </li>
-            <li>
-              <Link href="/#tokenomics" passHref>
-                Tokenomics
-              </Link>
-            </li>
-            <li>
-              <Link href="/info" passHref>
-                Info
-              </Link>
-            </li>
-            <li>
-              <Link href="/team" passHref>
-                Team
-              </Link>
-            </li>
-            <li>
-              <Link href="/dapp" passHref>
-                <button id="dappButton" className={styles.headerButton}>
-                  PreSale
-                </button>
-              </Link>
-              <Link href="/dapp" passHref>
-                <button
-                  id="connectButton"
-                  onClick={handlerConnectWallet}
-                  className={styles.headerButton}
-                >
-                  Connect
-                </button>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+          <h2>Cheetah Finance</h2>
+        </div>
+        <div className={styles.navLeft}>
+          <div className={styles.navListWrapper}>
+            <div className={styles.navList}>
+              <NavItem name="Home" link="/" dropdown={true} arrow={true}>
+                <Dropdown>
+                  <DropdownItem
+                    name="Angel Investors"
+                    link="/#AngleInvestors"
+                  />
+                  <DropdownItem name="Roadmap" link="/#roadmap" />
+                  <DropdownItem name="Auto Staking" link="/#AutoStaking" />
+                  <DropdownItem name="Tokenomics" link="/#tokenomics" />
+                  <DropdownItem name="NFT's" link="/#NFT" />
+                </Dropdown>
+              </NavItem>
+            </div>
+            <div className={styles.navList}>
+              <NavItem name="Docs" dropdown={true} arrow={true}>
+                <Dropdown>
+                  <DropdownItem name="Whitepaper" link="/docs/whitepaper.pdf" />
+                  <DropdownItem name="Audit" link="#" />
+                  <DropdownItem name="KYC" link="#" />
+                </Dropdown>
+              </NavItem>
+            </div>
+            <div className={styles.navList}>
+              <NavItem
+                name="Info"
+                link="/info"
+                dropdown={false}
+                arrow={false}
+              />
+            </div>
+            <div className={styles.navList}>
+              <NavItem
+                name="Team"
+                link="/team"
+                dropdown={false}
+                arrow={false}
+              />
+            </div>
+          </div>
+          <div className={styles.walletButtonWrapper}>
+            <div id="walletButton" className={styles.walletButton}>
+              {button}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </main>
+  );
+};
+
+const NavItem = (props) => {
+  return (
+    <div>
+      <div className={styles.navItem}>
+        {props.link && (
+          <Link href={props.link}>
+            <div className={styles.navLink}> {props.name}</div>
+          </Link>
+        )}
+        {!props.link && <div className={styles.navLink}> {props.name}</div>}
+        {props.arrow && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height={25}
+            viewBox="0 0 24 24"
+          >
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M7 10l5 5 5-5H7z" />
+          </svg>
+        )}
+      </div>
+      {props.dropdown && props.children}
     </div>
   );
 };
 
+const Dropdown = (props) => {
+  return (
+    <div className={styles.dropdownWrapper}>
+      <div className={styles.dropdown}>{props.children}</div>
+    </div>
+  );
+};
+
+const DropdownItem = (props) => {
+  return (
+    <Link href={props.link}>
+      <div className={styles.menuItem}>
+        {props.icon && <div className={styles.iconWrapper}>{props.icon}</div>}
+        {props.name}
+      </div>
+    </Link>
+  );
+};
 export default Nav;

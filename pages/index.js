@@ -2,7 +2,6 @@ import styles from "../styles/index.module.css";
 import Link from "next/link";
 import Head from "next/head";
 import { motion } from "framer-motion";
-import { addTokenFunction } from "../scripts/metamask";
 import Lottie from "lottie-react";
 import rocket from "../public/images/rocket.json";
 import genius from "../public/images/genius.json";
@@ -11,7 +10,7 @@ import angel from "../public/images/angel.json";
 import wallet from "../public/images/wallet.json";
 import lock from "../public/images/lock.json";
 import total from "../public/images/total.json";
-import { useAlert } from "react-alert";
+import { addTokenFunction } from "../components/web3/wallets/metamaskfunctions/metamask";
 
 const Home = () => {
   function copyEmail() {
@@ -20,10 +19,8 @@ const Home = () => {
   }
   function copyContract() {
     /* Copy the text inside the text field */
-    navigator.clipboard.writeText("");
+    navigator.clipboard.writeText("0xEA620a491111bF54db6B702ee9F6Df6fE539967d");
   }
-
-  const alert = useAlert();
 
   const interactivity = {
     mode: "scroll",
@@ -43,8 +40,8 @@ const Home = () => {
       exit={{ opacity: 0 }}
     >
       <Head>
-        <title>Cheetah Home</title>
-        <meta name="keyworkds' content='bsc, staking, blockchain, cheetah, binance" />
+        <title>Cheetah Finance</title>
+        <meta name="keywords' content='bsc, staking, blockchain, cheetah, binance" />
         <meta charset="UTF-8" />
         <meta
           name="viewport"
@@ -68,7 +65,7 @@ const Home = () => {
             <svg
               onClick={() => {
                 {
-                  alert.show("Email address coppied!");
+                  console.log("Email address coppied!");
                 }
                 {
                   copyEmail();
@@ -101,27 +98,26 @@ const Home = () => {
                 <div className={styles.infoWrapper}>
                   <p>
                     {
-                      "Prepare yourselves for the new generation of BSC. 300 BNB pre-sale, but no tokens allocated? That means no private sale dumpers at launch! Staking, but with 1,000,000,000% APY? x1,000,000,000 your investment in one year!?."
+                      "Prepare yourselves for the new generation of DeFi. Auto-staking with an APY of 1,000,000,000%! x10,000,000 your investment in a year! 300 BNB pre-sale filled, but 0 allocated tokens. One of the very first fair launches with no presale dumpers or team tokens."
                     }
                   </p>
                   <div className={styles.buttonWrapperMain}>
-                    <Link href="/docs/whitepaper.pdf">
-                      <button>Whitepaper</button>
-                    </Link>
-                    {/* <button onClick={addTokenFunction}>Import Cheetah</button> */}
+                    {<button onClick={addTokenFunction}>Import Cheetah</button>}
                     <button
                       onClick={() => {
                         {
-                          copyContract;
+                          copyContract();
                         }
                         {
-                          alert.show("Contract address coppied");
+                          console.log("Contract copied to clipboard!");
                         }
                       }}
                     >
                       Contract
                     </button>
-                    <button>Buy</button>
+                    <Link href="https://pancakeswap.finance/swap?outputCurrency=0xea620a491111bf54db6b702ee9f6df6fe539967d">
+                      <button>Buy</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -145,14 +141,12 @@ const Home = () => {
                     investors. Without a presale, there will be no tokens
                     allocated before launch and resulting in more tokens
                     available in supply to achieve a high APY. The benefit of no
-                    private/presale token allocations means no token dumps at launch. 
+                    private/presale token allocations means no token dumps at
+                    launch.
                   </p>
                   <div className={styles.buttonWrapper}>
                     <Link href="/info" passHref>
                       <button>Read More</button>
-                    </Link>
-                    <Link href="/dapp" passHref>
-                      <button>Invest</button>
                     </Link>
                   </div>
                 </div>
@@ -175,14 +169,21 @@ const Home = () => {
                   <div className={styles.roadmapInfo}>
                     <h3>Launch phase</h3>
                     <ul>
-                      <li>300 BNB ANGEL INVESTORS SALE</li>
+                      <li>
+                        <strike>300 BNB ANGEL INVESTORS SALE</strike>
+                      </li>
                       <li>NFT GENESIS SET PREVIEW AND PRESALE</li>
-                      <li>WEBSITE RELEASE</li>
+                      <li>
+                        <strike>WEBSITE RELEASE</strike>
+                      </li>
                       <li>LAUNCH XXXX MC</li>
                       <li>CMC CG APPLICATION</li>
                       <li>STANDARD KYC AND AUDIT</li>
-                      <li>TEAM DOX</li>
+                      <li>
+                        <strike>TEAM DOX</strike>
+                      </li>
                       <li>TELEGRAM CALLERS</li>
+                      <li>AMA TOUR</li>
                     </ul>
                   </div>
                 </div>
@@ -243,7 +244,8 @@ const Home = () => {
                     that provides the ultimate ease of use for $CHEETAH holders.
                     Buy-Hold-Earn - By simply buying $CHEETAH and holding the
                     token in your wallet, you earn daily rebase with an APY of
-                    1,000,000,000%.
+                    1,000,000,000%. And thanks to the positive rebase function,
+                    it is easily sustainable!
                   </p>
                   <Link href="/info" passHref>
                     <button>Read More</button>
@@ -261,7 +263,7 @@ const Home = () => {
             <div className={styles.tokenomicsWrapper}>
               <h2>Tokenomics</h2>
               <div className={styles.tokenomicsInfo}>
-                <h3>Blockchain: BEP20</h3>
+                <h3>Blockchain: BEP-20</h3>
                 <h3>Total Supply: 100,000,000</h3>
                 <h3>TICKER: $CHEETAH</h3>
               </div>
@@ -278,12 +280,12 @@ const Home = () => {
                 </div>
                 <div className={styles.taxItems}>
                   <Lottie animationData={lock} loop={true} />
-                  <h3>2%</h3>
+                  <h3>3%</h3>
                   <p>Liquidity</p>
                 </div>
                 <div className={styles.taxItems}>
                   <Lottie animationData={total} loop={true} />
-                  <h3>14%</h3>
+                  <h3>15%</h3>
                   <p>Total Buy/Sell</p>
                 </div>
               </div>

@@ -1,11 +1,9 @@
-import { rpcURL, blockExplorerUrls } from "../pages/_app";
 
-
-const tokenAddress = "";
-const tokenSymbol = "Cheetah";
+const tokenAddress = "0xEA620a491111bF54db6B702ee9F6Df6fE539967d";
+const tokenSymbol = "CHEETAH";
 const tokenDecimals = 18;
 const tokenImage = "https://i.imgur.com/nKDl2LY.png";
-const chainId = '0x38';
+const chainId = "0x38";
 
 //Add BSC to MetaMask
 async function addBscMainnet() {
@@ -28,7 +26,7 @@ async function addBscMainnet() {
     });
   } catch (addError) {
     console.log("Error: Something went wrong");
-    console.log(addError)
+    console.log(addError);
   }
 }
 

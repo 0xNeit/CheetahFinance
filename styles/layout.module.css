@@ -107,3 +107,17 @@
       calc(var(--point-gap-height) / 2 * -1);
   }
 }
+
+.mobileNav{
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .nav{
+    display: none;
+  }
+  .mobileNav{
+  display: block;
+}
+
+}

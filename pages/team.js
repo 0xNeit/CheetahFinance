@@ -1,7 +1,12 @@
 import styles from "../styles/team.module.css";
+import { motion } from "framer-motion";
 const Team = () => {
   return (
-    <main className={styles.main}>
+        <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    className={styles.main}>
       <div className="container">
         <div className={styles.divider}>
           <span></span>
@@ -179,7 +184,7 @@ const Team = () => {
           </div>
         </div>
       </div>
-    </main>
+    </motion.div>
   );
 };
 

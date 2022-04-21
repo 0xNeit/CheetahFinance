@@ -3,19 +3,17 @@ import styles from "../styles/dapp.module.css";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useAlert } from "react-alert";
 
-const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
+const CheetahDapp = ({ web3, vm, importAccount }) => {
   const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
-  const alert = useAlert();
 
   const [amountSent, setAmountSent] = useState(0);
   const [amountCollected, setAmountCollected] = useState(0);
   const [depositAmount, setDepositAmount] = useState(0);
   const [percentTransactions, setPercentTransactions] = useState(0);
   const [returns, setReturns] = useState(0);
-  const [vmContract, setVmContract] = useState(initialWeb3);
+  const [vmContract, setVmContract] = useState(web3);
   const [account, setAccount] = useState(null);
 
   useEffect(() => {
@@ -54,13 +52,13 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
             console.log(err);
           }
         else {
-          alert.show("Your atempted deposit exceeds total hardcap!");
+          console.log("Your atempted deposit exceeds total hardcap!");
         }
       } else {
-        alert.show("The mininum deposit is 1 BNB and the maximum is 300 BNB");
+        console.log("The mininum deposit is 1 BNB and the maximum is 300 BNB");
       }
     } else {
-      alert.show("Please connect your wallet to the site!");
+      console.log("Please connect your wallet to the site!");
     }
   };
 
@@ -172,7 +170,7 @@ const CheetahDapp = ({ initialWeb3, vm, importAccount }) => {
 
               <button
                 className={styles.connectButton}
-                onClick={handleDepositBNB}
+                onClick={() => console.log(web3, account)}
               >
                 Deposit
               </button>
