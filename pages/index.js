@@ -36,7 +36,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    var countDownDate = new Date("April 21, 2022 20:00:00");
+    var countDownDate = new Date("April 21, 2022 20:09:00");
 
     const x = setInterval(function () {
       // Get today's date and time
@@ -74,7 +74,7 @@ const Home = () => {
       if (distance < 0) {
         clearInterval(x);
         document.getElementById("timer").innerHTML =
-          "Launch Timer: Buying is enabled!!!"
+          "Launch Timer: Buying is enabled!!!";
       }
     }, 1000);
   }, []);
