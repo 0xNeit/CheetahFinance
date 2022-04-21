@@ -124,7 +124,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className={styles.features}>
+        <section id="AngleInvestors" className={styles.features}>
           <div className="container">
             <div
               className={`${styles.featuresWrapper} ${styles.angelInvestors}`}
@@ -232,7 +232,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className={styles.features}>
+        <section id="autostaking" className={styles.features}>
           <div className="container">
             <div className={`${styles.featuresWrapper} ${styles.autoStaking}`}>
               <div className={styles.featuresInfoWrapper}>
@@ -292,7 +292,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className={styles.features}>
+        <section id="nfts" className={styles.features}>
           <div className="container">
             <div className={`${styles.featuresWrapper} ${styles.nfts}`}>
               <div className={styles.featuresImage}>

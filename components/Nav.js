@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SidebarNav from "./SidebarNav";
 import { useEffect, useState } from "react";
 import styles from "../styles/nav.module.css";
 import Image from "next/image";
@@ -45,77 +44,65 @@ const Nav = ({ setShowWallet, account, disconnectWallet }) => {
 
 
   return (
-    <main>
-      <div className={styles.mobileNav}>
-        <SidebarNav
-          setShowWallet={setShowWallet}
-          account={account}
-          disconnectWallet={disconnectWallet}
-        />
-      </div>
-      <div className={styles.header}>
-        <nav className={styles.navWrapper}>
-          <div className={styles.navRight}>
-            <div className={styles.logo}>
-              <Link href="/">
-                <Image src={CheetahLogo} height={50} width={50} />
-              </Link>
-            </div>
-            <h2>Cheetah Finance</h2>
+    <main className={styles.header}>
+      <nav className={styles.navWrapper}>
+        <div className={styles.navRight}>
+          <div className={styles.logo}>
+            <Link href="/">
+              <Image src={CheetahLogo} height={50} width={50} />
+            </Link>
           </div>
-          <div className={styles.navLeft}>
-            <div className={styles.navListWrapper}>
-              <div className={styles.navList}>
-                <NavItem name="Home" link="/" dropdown={true} arrow={true}>
-                  <Dropdown>
-                    <DropdownItem
-                      name="Angel Investors"
-                      link="/#AngleInvestors"
-                    />
-                    <DropdownItem name="Roadmap" link="/#roadmap" />
-                    <DropdownItem name="Auto Staking" link="/#AutoStaking" />
-                    <DropdownItem name="Tokenomics" link="/#tokenomics" />
-                    <DropdownItem name="NFT's" link="/#NFT" />
-                  </Dropdown>
-                </NavItem>
-              </div>
-              <div className={styles.navList}>
-                <NavItem name="Docs" dropdown={true} arrow={true}>
-                  <Dropdown>
-                    <DropdownItem
-                      name="Whitepaper"
-                      link="/docs/whitepaper.pdf"
-                    />
-                    <DropdownItem name="Audit" link="#" />
-                    <DropdownItem name="KYC" link="#" />
-                  </Dropdown>
-                </NavItem>
-              </div>
-              <div className={styles.navList}>
-                <NavItem
-                  name="Info"
-                  link="/info"
-                  dropdown={false}
-                  arrow={false}
-                />
-              </div>
-              <div className={styles.navList}>
-                <NavItem
-                  name="Team"
-                  link="/team"
-                  dropdown={false}
-                  arrow={false}
-                />
-              </div>
+          <h2>Cheetah Finance</h2>
+        </div>
+        <div className={styles.navLeft}>
+          <div className={styles.navListWrapper}>
+            <div className={styles.navList}>
+              <NavItem name="Home" link="/" dropdown={true} arrow={true}>
+                <Dropdown>
+                  <DropdownItem
+                    name="Angel Investors"
+                    link="/#AngleInvestors"
+                  />
+                  <DropdownItem name="Roadmap" link="/#roadmap" />
+                  <DropdownItem name="Auto Staking" link="/#AutoStaking" />
+                  <DropdownItem name="Tokenomics" link="/#tokenomics" />
+                  <DropdownItem name="NFT's" link="/#NFT" />
+                </Dropdown>
+              </NavItem>
             </div>
-            <div className={styles.walletButtonWrapper}>
-              <div id="walletButton" className={styles.walletButton}>
-                {button}
-              </div>
+            <div className={styles.navList}>
+              <NavItem name="Docs" dropdown={true} arrow={true}>
+                <Dropdown>
+                  <DropdownItem name="Whitepaper" link="/docs/whitepaper.pdf" />
+                  <DropdownItem name="Audit" link="#" />
+                  <DropdownItem name="KYC" link="#" />
+                </Dropdown>
+              </NavItem>
+            </div>
+            <div className={styles.navList}>
+              <NavItem
+                name="Info"
+                link="/info"
+                dropdown={false}
+                arrow={false}
+              />
+            </div>
+            <div className={styles.navList}>
+              <NavItem
+                name="Team"
+                link="/team"
+                dropdown={false}
+                arrow={false}
+              />
             </div>
           </div>
-        </nav>
-      </div>
+          <div className={styles.walletButtonWrapper}>
+            <div id="walletButton" className={styles.walletButton}>
+              {button}
+            </div>
+          </div>
+        </div>
+      </nav>
     </main>
   );
 };
