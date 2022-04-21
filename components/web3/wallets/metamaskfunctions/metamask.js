@@ -1,5 +1,5 @@
 
-const tokenAddress = "0xEA620a491111bF54db6B702ee9F6Df6fE539967d";
+const tokenAddress = "";
 const tokenSymbol = "CHEETAH";
 const tokenDecimals = 18;
 const tokenImage = "https://i.imgur.com/nKDl2LY.png";

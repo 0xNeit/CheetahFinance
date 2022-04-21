@@ -21,7 +21,7 @@ const Home = () => {
   }
   function copyContract() {
     /* Copy the text inside the text field */
-    navigator.clipboard.writeText("0xEA620a491111bF54db6B702ee9F6Df6fE539967d");
+    navigator.clipboard.writeText("");
   }
 
   const interactivity = {
@@ -35,50 +35,6 @@ const Home = () => {
     ],
   };
 
-  // useEffect(() => {
-  //   var countDownDate = new Date("April 21, 2022 20:20:00");
-
-  //   const x = setInterval(function () {
-  //     // Get today's date and time
-  //     var now = new Date();
-  //     var nowUTC = new Date(
-  //       now.getUTCFullYear(),
-  //       now.getUTCMonth(),
-  //       now.getUTCDate(),
-  //       now.getUTCHours(),
-  //       now.getUTCMinutes(),
-  //       now.getUTCSeconds()
-  //     );
-  //     // Find the distance between now and the count down date
-  //     var distance = countDownDate - nowUTC;
-  //     // Time calculations for days, hours, minutes and seconds
-  //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  //     var hours = Math.floor(
-  //       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //     );
-  //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  //     // Display the result in the element with id="demo"
-  //     document.getElementById("timer").innerHTML =
-  //       "Launch Timer:" +
-  //       " " +
-  //       days +
-  //       "d " +
-  //       hours +
-  //       "h " +
-  //       minutes +
-  //       "m " +
-  //       seconds +
-  //       "s ";
-  //     // If the count down is finished, write some text
-  //     if (distance < 0) {
-  //       clearInterval(x);
-  //       document.getElementById("timer").innerHTML =
-  //         "Launch Timer: Buying is enabled!!!";
-  //     }
-  //   }, 1000);
-  // }, []);
-
   const [showBuy, setShowBuy] = useState(false);
   const [showAlert, setShowAlert] = useState(true);
 
@@ -91,7 +47,7 @@ const Home = () => {
       <Head>
         <title>Cheetah Finance</title>
         <meta name="keywords' content='bsc, staking, blockchain, cheetah, binance" />
-        <meta charset="UTF-8" />
+        <meta charSet="UTF-8" />
         <meta
           name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -99,19 +55,6 @@ const Home = () => {
         <link rel="icon" href="/images/cheetah-logo.ico" />
       </Head>
       <AnimatePresence exitBeforeEnter>
-        {/* {showAlert && (
-          <Modal setShowModal={setShowAlert} showModal={showAlert}>
-            <div className={styles.alertModal}>
-              <h1>
-                {" "}
-                <span className={styles.redText}>!WARNING!</span> DO NOT BUY
-                BEFORE THE TIMER HITS ZERO{" "}
-                <span className={styles.redText}>!WARNING!</span>
-              </h1>
-              <h2 id="timer"></h2>
-            </div>
-          </Modal>
-        )} */}
         {showBuy && (
           <Modal setShowModal={setShowBuy} showModal={showBuy}>
             <div className={styles.buyModal}>
@@ -121,7 +64,7 @@ const Home = () => {
               >
                 <iframe
                   className={styles.floozFrame}
-                  src="https://www.flooz.trade/embedded/0xEA620a491111bF54db6B702ee9F6Df6fE539967d/?backgroundColor=transparent&chainId=56"
+                  src="https://www.flooz.trade/embedded//?backgroundColor=transparent&chainId=56"
                   title="Flooz Trade"
                   allow="clipboard-read; clipboard-write; web-share; accelerometer *; autoplay *; camera *; gyroscope *; payment *"
                 >
