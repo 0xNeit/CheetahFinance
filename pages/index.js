@@ -312,7 +312,7 @@ const Home = () => {
                 </div>
                 <div className={styles.taxItems}>
                   <Lottie animationData={total} loop={true} />
-                  <h3>15%</h3>
+                  <h3>14%</h3>
                   <p>Total Buy/Sell</p>
                 </div>
               </div>
