@@ -210,6 +210,7 @@ const SidebarNav = ({ setShowWallet, account, disconnectWallet }) => {
                   link="/info"
                   dropdown={false}
                   arrow={false}
+                  function={() => setIsOpen(false)}
                 />
               </div>
               <div className={styles.navItemWrapper}>
@@ -218,6 +219,7 @@ const SidebarNav = ({ setShowWallet, account, disconnectWallet }) => {
                   link="/team"
                   dropdown={false}
                   arrow={false}
+                  function={() => setIsOpen(false)}
                 />
               </div>
             </div>

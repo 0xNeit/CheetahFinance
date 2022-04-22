@@ -27,20 +27,21 @@ const Layout = ({ children, setShowWallet, account, disconnectWallet }) => {
 
   return (
     <div className={styles.main}>
-      {windowDimensions >= 750 && (
-        <Nav
-          setShowWallet={setShowWallet}
-          account={account}
-          disconnectWallet={disconnectWallet}
-        />
-      )}
-      {windowDimensions <= 749 && (
+      {windowDimensions <= 750 && (
         <SidebarNav
           setShowWallet={setShowWallet}
           account={account}
           disconnectWallet={disconnectWallet}
         />
       )}
+      {windowDimensions > 750 && (
+        <Nav
+          setShowWallet={setShowWallet}
+          account={account}
+          disconnectWallet={disconnectWallet}
+        />
+      )}
+
       <div className={pawStyles.pawPrints}>
         <img src="/images/pawprint1.png" alt="Logo" />
         <img src="/images/pawprint1.png" alt="Logo" />

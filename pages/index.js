@@ -345,6 +345,7 @@ const Home = () => {
             </div>
           </div>
         </section>
+        {/* Created buy: MoonRocket23 */}
       </main>
     </motion.div>
   );
