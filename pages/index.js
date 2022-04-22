@@ -17,7 +17,7 @@ import { addTokenFunction } from "../components/web3/wallets/metamaskfunctions/m
 const Home = () => {
   function copyEmail() {
     /* Copy the text inside the text field */
-    navigator.clipboard.writeText("info@CheetahFinance.io");
+    navigator.clipboard.writeText("ahm22.med122@gmail.com");
   }
   function copyContract() {
     /* Copy the text inside the text field */
